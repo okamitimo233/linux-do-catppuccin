@@ -2,7 +2,7 @@
 @name Linux DO Catppuccin
 @namespace github.com/okamitimo233/linux-do-catppuccin
 @homepageURL https://github.com/okamitimo233/linux-do-catppuccin
-@version         1.0.0
+@version         1.0.1
 @updateURL https://github.com/okamitimo233/linux-do-catppuccin/raw/main/catppuccin.user.less
 @supportURL https://github.com/okamitimo233/linux-do-catppuccin/issues
 @description Soothing pastel theme for Linux DO
@@ -181,6 +181,22 @@
 
     /* ---- wiki ---- */
     --wiki: @green;
+
+    /* ---- rgb variants for rgba() compatibility ---- */
+    // Helper to generate --*-rgb variables from Catppuccin palette colours
+    .rgb-var(@name, @color) {
+      --@{name}-rgb: red(@color), green(@color), blue(@color);
+    }
+
+    .rgb-var(primary, @text);
+    .rgb-var(secondary, @base);
+    .rgb-var(tertiary, @accent);
+    .rgb-var(primary-low, @surface0);
+    .rgb-var(primary-very-low, @surface0);
+    .rgb-var(header_background, @mantle);
+    .rgb-var(highlight, @yellow);
+    .rgb-var(success, @green);
+    .rgb-var(chat-skeleton-animation, @surface0);
 
     /* ================================================================ */
     /*  2.  Code / syntax highlighting                                   */

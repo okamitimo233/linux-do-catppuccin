@@ -163,3 +163,4 @@ html.dark {
 4. **Placing rules outside `#catppuccin()`** — all themed rules must be inside the mixin to receive the correct flavor
 5. **Adding selectors without testing on the live site** — Discourse's DOM structure can vary between instances
 6. **Removing or reordering metadata block fields** — CI validates the metadata block; see [metadata-and-config.md](./metadata-and-config.md)
+7. **Overriding `--name` but forgetting `--name-rgb`** — Discourse uses `rgba(var(--*-rgb), <alpha>)` for semi-transparent elements (e.g. `.about` background). If you override `--secondary` to Catppuccin `@base` but leave `--secondary-rgb` unchanged, the `rgba()` call falls back to the original Discourse color and leaks through. Always generate matching `-rgb` variants using `red(@color), green(@color), blue(@color)`.
