@@ -1,7 +1,3 @@
-<p align="right">
-	<a href="./README.md">🇺🇸 English</a>
-</p>
-
 <h3 align="center">
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="100" alt="Logo"/><br/>
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
@@ -15,7 +11,9 @@
 	<a href="https://github.com/Okamitimo233/linux-do-catppuccin/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
-&nbsp;
+<p align="center">
+	<a href="./README.md">English</a>
+</p>
 
 <p align="center">
 	为 <a href="https://linux.do">Linux DO</a> 社区论坛打造的柔和粉彩主题 —<br/>
