@@ -25,8 +25,8 @@
 ## ✨ Preview
 
 <p align="center">
-	<!-- TODO: add screenshots -->
-	<em>Screenshots coming soon</em>
+	<img src="./assets/preview-1.png" alt="Preview 1" width="48%" />
+	<img src="./assets/preview-2.png" alt="Preview 2" width="48%" />
 </p>
 
 ## 🎨 Flavors
