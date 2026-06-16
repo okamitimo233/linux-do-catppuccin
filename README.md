@@ -130,9 +130,7 @@ Pick from 15 accent colors to personalize your experience:
 
 Click the badge above, or open this link directly in your browser:
 
-```
-https://raw.githubusercontent.com/Okamitimo233/linux-do-catppuccin/main/catppuccin.user.less
-```
+[https://raw.githubusercontent.com/Okamitimo233/linux-do-catppuccin/main/catppuccin.user.less](https://raw.githubusercontent.com/Okamitimo233/linux-do-catppuccin/main/catppuccin.user.less)
 
 Stylus will detect the userstyle and show an install dialog. Click **"Install style"** — done!
 

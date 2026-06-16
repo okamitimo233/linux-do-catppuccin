@@ -59,9 +59,7 @@
 
 点击上方徽章，或在浏览器中直接打开此链接：
 
-```
-https://raw.githubusercontent.com/Okamitimo233/linux-do-catppuccin/main/catppuccin.user.less
-```
+[https://raw.githubusercontent.com/Okamitimo233/linux-do-catppuccin/main/catppuccin.user.less](https://raw.githubusercontent.com/Okamitimo233/linux-do-catppuccin/main/catppuccin.user.less)
 
 Stylus 会自动检测到用户样式并弹出安装对话框。点击 **"Install style"** 即可完成！
 
