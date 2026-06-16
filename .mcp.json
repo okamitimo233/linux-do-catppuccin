@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "browser-lens": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "browser-lens-mcp@latest"
+      ],
+      "env": {
+        "MCP_BROWSER_LENS_PORT": "3300",
+        "MCP_BROWSER_LENS_WS_PORT": "3301"
+      },
+      "lifecycle": "lazy",
+      "directTools": false
+    }
+  }
+}
