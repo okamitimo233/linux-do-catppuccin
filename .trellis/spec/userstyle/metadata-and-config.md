@@ -18,7 +18,7 @@ All of these are validated by CI (`lint.yml`):
 |-------|---------------|-------|
 | `@name` | `Linux DO Catppuccin` | Display name in Stylus |
 | `@namespace` | `github.com/okamitimo233/linux-do-catppuccin` | Unique identifier |
-| `@version` | `2026.06.16` | Date-based; auto-bumped |
+| `@version` | `1.0.0` | SemVer; manually bumped |
 | `@description` | `Soothing pastel theme for Linux DO` | Short description |
 | `@author` | `Catppuccin` | Theme author |
 | `@license` | `MIT` | License identifier |
@@ -73,22 +73,18 @@ The metadata block defines three user-configurable options using `@var`:
 
 ## Versioning
 
-### Auto-bump workflow
+### Strategy
 
-The `bump-version.yml` workflow runs on every push to `main` that touches `catppuccin.user.less` (excluding pushes from the bot itself):
-
-```bash
-TODAY=$(date -u +%Y.%m.%d)
-sed -i -E "s/@version[[:space:]]+.*/@version         ${TODAY}/" catppuccin.user.less
-```
-
-Reference: [`.github/workflows/bump-version.yml`](../../../.github/workflows/bump-version.yml)
+Version bumps are **manual**. Edit the `@version` field directly in [`catppuccin.user.less`](../../../catppuccin.user.less). There is no CI auto-bump — the `bump-version.yml` workflow has been removed.
 
 ### Rules
 
-- **Version format**: `YYYY.MM.DD` (UTC date)
-- **Never set `@version` manually** — the CI will overwrite it on push
-- **The `@updateURL` must remain** `raw/main/catppuccin.user.less` — do not version-pin the URL
+- **Version format**: SemVer `MAJOR.MINOR.PATCH` (e.g. `1.0.0`). This is compatible with Stylus update checks (numeric segment comparison) and passes `usercss-meta` validation.
+- **Increment `PATCH`** for bug fixes and minor style tweaks.
+- **Increment `MINOR`** for new features, new `@var` options, or substantive restyling.
+- **Increment `MAJOR`** for breaking changes (e.g. removing or renaming `@var` options that users may have customized).
+- **The `@updateURL` must remain** `raw/main/catppuccin.user.less` — do not version-pin the URL.
+- **Keep `@namespace` and `@name` unchanged** — changing them causes Stylus to treat the theme as a different style, producing duplicates.
 
 ---
 
@@ -113,4 +109,4 @@ If you add a new required field, update the CI check's `required` array.
 2. **Removing `@updateURL`** — disables auto-update for all users
 3. **Changing `@namespace`** — Stylus treats it as a different style, causing duplicates
 4. **Alphabetizing metadata fields** — the order doesn't matter, but reordering just the CI `required` list without reordering the metadata is fine
-5. **Adding `@var` without updating `@version`** — let the CI handle it
+5. **Adding `@var` without bumping `@version`** — bump `MINOR` manually when adding new config options so Stylus detects the update
