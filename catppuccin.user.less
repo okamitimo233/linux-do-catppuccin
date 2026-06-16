@@ -1,0 +1,478 @@
+/* ==UserStyle==
+@name Linux DO Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/linux-do
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/linux-do
+@version 2000.01.01
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/linux-do/catppuccin.user.less
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Alinux-do
+@description Soothing pastel theme for Linux DO
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+@-moz-document domain("linux.do") {
+  /* ------------------------------------------------------------------ */
+  /*  Light / Dark detection                                              */
+  /*  Discourse typically sets a class on <html> or uses system theme.    */
+  /*  We support both: prefers-color-scheme as fallback, plus any theme   */
+  /*  attribute/class the site may set.                                   */
+  /* ------------------------------------------------------------------ */
+
+  /* --- Auto-detection via system preference --- */
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  /* --- Override when a theme class/attribute is present on :root --- */
+  /* Discourse may use data-theme="dark"/"light" or a class like .theme-dark */
+  :root[data-theme="dark"],
+  :root.theme-dark,
+  :root.dark {
+    #catppuccin(@darkFlavor);
+  }
+  :root[data-theme="light"],
+  :root.theme-light,
+  :root.light {
+    #catppuccin(@lightFlavor);
+  }
+
+  /* Some Discourse instances put the class on <html> instead */
+  html[data-theme="dark"],
+  html.theme-dark,
+  html.dark {
+    #catppuccin(@darkFlavor);
+  }
+  html[data-theme="light"],
+  html.theme-light,
+  html.light {
+    #catppuccin(@lightFlavor);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Main theme mixin                                                   */
+  /* ------------------------------------------------------------------ */
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    /* Expose Catppuccin colors so custom CSS can reference them */
+    #lib.css-variables();
+
+    color: @text;
+    background-color: @base;
+
+    /* ================================================================ */
+    /*  1.  Core Discourse colour variables                               */
+    /* ================================================================ */
+    --primary: @text;
+    --secondary: @base;
+    --tertiary: @accent;
+    --quaternary: @accent;
+    --header_background: @mantle;
+    --header_primary: @text;
+    --highlight: @yellow;
+    --danger: @red;
+    --success: @green;
+    --love: @pink;
+
+    --d-selected: fade(@accent, 25%);
+    --d-selected-hover: fade(@accent, 30%);
+    --d-hover: fade(@text, 8%);
+
+    /* ---- primary derivatives ---- */
+    --primary-very-low: @surface0;
+    --primary-low: @surface0;
+    --primary-low-mid: @surface1;
+    --primary-medium: @surface2;
+    --primary-high: @subtext0;
+    --primary-very-high: @subtext1;
+
+    /* ---- secondary derivatives ---- */
+    --secondary-low: @mantle;
+    --secondary-medium: @crust;
+    --secondary-high: @crust;
+    --secondary-very-high: @crust;
+
+    /* ---- tertiary derivatives ---- */
+    --tertiary-very-low: fade(@accent, 10%);
+    --tertiary-low: fade(@accent, 15%);
+    --tertiary-medium: fade(@accent, 30%);
+    --tertiary-high: @accent;
+    --tertiary-hover: if(
+      (@flavor = latte),
+      darken(@accent, 5%),
+      lighten(@accent, 5%)
+    );
+
+    /* ---- header derivatives ---- */
+    --header_primary-low: fade(@text, 10%);
+    --header_primary-low-mid: fade(@text, 20%);
+    --header_primary-medium: @subtext0;
+    --header_primary-high: @subtext1;
+    --header_primary-very-high: @text;
+
+    /* ---- highlight derivatives ---- */
+    --highlight-bg: fade(@yellow, 20%);
+    --highlight-low: fade(@yellow, 10%);
+    --highlight-medium: @yellow;
+    --highlight-high: darken(@yellow, 10%);
+
+    /* ---- danger derivatives ---- */
+    --danger-low: fade(@red, 15%);
+    --danger-low-mid: fade(@red, 25%);
+    --danger-medium: @red;
+    --danger-hover: if(
+      (@flavor = latte),
+      darken(@red, 5%),
+      lighten(@red, 5%)
+    );
+
+    /* ---- success derivatives ---- */
+    --success-low: fade(@green, 15%);
+    --success-medium: @green;
+    --success-hover: if(
+      (@flavor = latte),
+      darken(@green, 5%),
+      lighten(@green, 5%)
+    );
+
+    /* ---- love derivatives ---- */
+    --love-low: fade(@pink, 15%);
+
+    /* ---- blend / computed ---- */
+    --blend-primary-secondary-5: fade(@text, 5%);
+    --primary-med-or-secondary-med: @overlay0;
+    --primary-med-or-secondary-high: @subtext0;
+    --primary-high-or-secondary-low: @subtext1;
+    --primary-low-mid-or-secondary-high: @surface1;
+    --primary-low-mid-or-secondary-low: @surface1;
+    --primary-or-primary-low-mid: @text;
+    --highlight-low-or-medium: fade(@yellow, 25%);
+    --tertiary-or-tertiary-low: @accent;
+    --tertiary-low-or-tertiary-high: fade(@accent, 40%);
+    --tertiary-med-or-tertiary: @accent;
+    --secondary-or-primary: @base;
+    --tertiary-or-white: @accent;
+
+    /* ---- input / border ---- */
+    --d-link-color: var(--tertiary);
+    --title-color--read: @overlay0;
+    --content-border-color: @surface0;
+    --input-border-color: @overlay0;
+    --table-border-color: @surface1;
+    --metadata-color: @overlay1;
+    --d-badge-card-background-color: @base;
+    --mention-background-color: fade(@yellow, 15%);
+    --title-color: @text;
+    --title-color--header: @text;
+    --excerpt-color: @subtext0;
+
+    /* ---- wiki ---- */
+    --wiki: @green;
+
+    /* ================================================================ */
+    /*  2.  Code / syntax highlighting                                   */
+    /* ================================================================ */
+    --hljs-attr: @text;
+    --hljs-attribute: @blue;
+    --hljs-addition: @green;
+    --hljs-bg: @mantle;
+    --inline-code-bg: @surface0;
+    --hljs-comment: @overlay2;
+    --hljs-deletion: @red;
+    --hljs-keyword: @mauve;
+    --hljs-title: @blue;
+    --hljs-name: @peach;
+    --hljs-punctuation: @overlay2;
+    --hljs-symbol: @teal;
+    --hljs-variable: @text;
+    --hljs-string: @green;
+
+    /* ================================================================ */
+    /*  3.  Shadows                                                       */
+    /* ================================================================ */
+    /* Use Catppuccin surface colours for shadow luminance                */
+    --shadow-opacity-modal: 0.3;
+    --shadow-opacity-composer: 0.15;
+    --shadow-opacity-card: 0.2;
+    --shadow-opacity-dropdown: 0.15;
+    --shadow-opacity-footer-nav: 0.12;
+
+    --shadow-modal: 0 8px 60px rgba(0, 0, 0, var(--shadow-opacity-modal));
+    --shadow-composer: 0 -1px 40px rgba(
+      0,
+      0,
+      0,
+      var(--shadow-opacity-composer)
+    );
+    --shadow-card: 0 4px 14px rgba(0, 0, 0, var(--shadow-opacity-card));
+    --shadow-dropdown: 0 2px 12px 0 rgba(
+      0,
+      0,
+      0,
+      var(--shadow-opacity-dropdown)
+    );
+    --shadow-menu-panel: var(--shadow-dropdown);
+    --shadow-header: 0 0 0 1px var(--content-border-color);
+    --shadow-footer-nav: 0 0 2px 0 rgba(
+      0,
+      0,
+      0,
+      var(--shadow-opacity-footer-nav)
+    );
+    --shadow-focus-danger: 0 0 6px 0 var(--danger);
+    --float-kit-arrow-stroke-color: @surface1;
+    --float-kit-arrow-fill-color: @base;
+    --topic-timeline-border-color: fade(@accent, 40%);
+    --topic-timeline-handle-color: @accent;
+
+    /* ================================================================ */
+    /*  4.  Element-level overrides                                       */
+    /* ================================================================ */
+
+    /* --- Header --- */
+    .d-header {
+      background-color: @mantle;
+      color: @text;
+      box-shadow: var(--shadow-header);
+    }
+
+    /* Header icons / links */
+    .d-header .header-buttons .btn,
+    .d-header .header-buttons .d-icon {
+      color: @text;
+    }
+
+    .d-header .header-buttons .btn:hover,
+    .d-header .header-buttons .d-icon:hover {
+      background-color: fade(@text, 8%);
+    }
+
+    /* --- Sidebar --- */
+    .sidebar-section-wrapper,
+    .sidebar-sections {
+      background-color: @mantle;
+    }
+
+    .sidebar-section-link {
+      color: @text;
+    }
+
+    .sidebar-section-link:hover,
+    .sidebar-section-link:focus {
+      background-color: @surface0;
+    }
+
+    .sidebar-section-link.active {
+      background-color: fade(@accent, 20%);
+      color: @text;
+    }
+
+    /* --- Topic list --- */
+    .topic-list-item {
+      border-bottom-color: @surface0;
+    }
+
+    .topic-list-item:hover {
+      background-color: @surface0;
+    }
+
+    .topic-list-item.visited .topic-title {
+      color: @overlay0;
+    }
+
+    .topic-title {
+      color: @text;
+    }
+
+    .topic-title a {
+      color: @text;
+    }
+
+    .topic-title a:visited {
+      color: @overlay0;
+    }
+
+    /* --- Posts / topic body --- */
+    .topic-body {
+      background-color: @base;
+    }
+
+    .post-notice {
+      background-color: @surface0;
+    }
+
+    /* --- Buttons --- */
+    .btn-primary {
+      background-color: @accent;
+      color: @base;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--tertiary-hover);
+      color: @base;
+    }
+
+    .btn-danger {
+      background-color: @red;
+      color: @base;
+    }
+
+    .btn-danger:hover {
+      background-color: var(--danger-hover);
+      color: @base;
+    }
+
+    .btn-default {
+      background-color: @surface0;
+      color: @text;
+    }
+
+    .btn-default:hover {
+      background-color: @surface1;
+    }
+
+    /* --- Navigation / categories --- */
+    .category-navigation {
+      background-color: @base;
+    }
+
+    .badge-category {
+      color: @text;
+    }
+
+    /* --- Inputs --- */
+    input[type="text"],
+    input[type="search"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+      background-color: @surface0;
+      border-color: @overlay0;
+      color: @text;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: @accent;
+      box-shadow: 0 0 4px fade(@accent, 30%);
+    }
+
+    /* --- Composer (reply area) --- */
+    .composer-container,
+    .reply-area {
+      background-color: @base;
+      border-color: @surface1;
+    }
+
+    /* --- Notifications / menu panels --- */
+    .menu-panel {
+      background-color: @mantle;
+      border-color: @surface1;
+    }
+
+    .menu-panel li a {
+      color: @text;
+    }
+
+    .menu-panel li a:hover {
+      background-color: @surface0;
+    }
+
+    /* --- User cards --- */
+    .user-card,
+    .group-card {
+      background-color: @mantle;
+      border-color: @surface1;
+    }
+
+    /* --- Modals --- */
+    .modal-inner-container {
+      background-color: @base;
+      border-color: @surface1;
+    }
+
+    .modal-header {
+      background-color: @mantle;
+      border-bottom-color: @surface1;
+    }
+
+    /* --- Alerts / toasts --- */
+    .alert {
+      &.alert-success {
+        background-color: fade(@green, 20%);
+        color: @green;
+      }
+      &.alert-error,
+      &.alert-danger {
+        background-color: fade(@red, 20%);
+        color: @red;
+      }
+      &.alert-info {
+        background-color: fade(@blue, 20%);
+        color: @blue;
+      }
+      &.alert-warning {
+        background-color: fade(@yellow, 20%);
+        color: @yellow;
+      }
+    }
+
+    /* --- Progress / loading bars --- */
+    .loading-container .progress-bar {
+      background-color: @accent;
+    }
+
+    /* --- Footer --- */
+    .powered-by-link {
+      color: @overlay0;
+    }
+
+    /* --- Scrollbar (fancy optional touch) --- */
+    & when not(@flavor = latte) {
+      ::-webkit-scrollbar-track {
+        background: @mantle;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: @surface1;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: @surface2;
+      }
+    }
+
+    /* ================================================================ */
+    /*  5.  SVG / logo filters (if the site uses inline SVGs)            */
+    /* ================================================================ */
+    /* If linux.do has a custom logo, add a filter here.                 */
+    /* Example: .d-header #site-logo { filter: @text-filter; }          */
+
+    /* ================================================================ */
+    /*  6.  Flavour-specific tweaks                                      */
+    /* ================================================================ */
+    & when (@flavor = latte) {
+      /* In latte, increase contrast on some bordered elements */
+      --content-border-color: @surface1;
+      --input-border-color: @surface2;
+    }
+
+    & when not(@flavor = latte) {
+      /* Dark flavours: reduce heavy box-shadows */
+      box-shadow: none;
+    }
+  }
+}
