@@ -25,8 +25,8 @@
 ## ✨ 预览
 
 <p align="center">
-	<!-- TODO: 添加截图 -->
-	<em>截图即将到来</em>
+	<img src="./assets/preview-1.png" alt="预览 1" width="48%" />
+	<img src="./assets/preview-2.png" alt="预览 2" width="48%" />
 </p>
 
 ## 🎨 风味
