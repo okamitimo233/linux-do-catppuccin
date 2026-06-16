@@ -38,3 +38,36 @@ Replaced React/web-app template specs with 5 project-specific userstyle spec fil
 ### Next Steps
 
 - None - task complete
+
+
+## Session 2: Switch to manual SemVer versioning
+
+**Date**: 2026-06-16
+**Task**: Switch to manual SemVer versioning
+**Branch**: `main`
+
+### Summary
+
+Changed @version from date-based (YYYY.MM.DD) to SemVer (1.0.0), deleted CI auto-bump workflow, and updated versioning docs in .trellis/spec/userstyle/metadata-and-config.md.
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `473b715` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
