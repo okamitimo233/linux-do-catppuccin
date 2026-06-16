@@ -181,6 +181,12 @@ Please open an [issue](https://github.com/Okamitimo233/linux-do-catppuccin/issue
 
 [MIT](./LICENSE) © Catppuccin
 
+## 🔗 Friendly Links
+
+<p align="center">
+	<a href="https://linux.do">Linux DO</a>
+</p>
+
 &nbsp;
 
 <p align="center">

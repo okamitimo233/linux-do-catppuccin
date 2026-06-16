@@ -110,6 +110,12 @@ Stylus 会自动检测到用户样式并弹出安装对话框。点击 **"Instal
 
 [MIT](./LICENSE) © Catppuccin
 
+## 🔗 友情链接
+
+<p align="center">
+	<a href="https://linux.do">Linux DO</a>
+</p>
+
 &nbsp;
 
 <p align="center">
