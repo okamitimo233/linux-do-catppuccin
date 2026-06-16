@@ -164,6 +164,27 @@ Changes apply instantly — no page reload needed.
 - 🖌️ Styled: header, sidebar, topic list, posts, buttons, inputs, modals, code blocks, scrollbar
 - 🔄 Auto-update support via Stylus
 
+## 📋 Changelog
+
+### [1.0.2] — 2026-06-16
+
+- Fix: remap `--secondary-*` derivatives from `@crust` to overlay colors (`@overlay0`, `@overlay2`, `@subtext1`) for better readability of secondary UI elements (badges, hover states, muted text)
+
+### [1.0.1] — 2026-06-16
+
+- Fix: override Discourse `--*-rgb` CSS variables to prevent original theme color leakage through `rgba()` compositions
+
+### [1.0.0] — 2026-06-16
+
+- Initial SemVer release
+- Full Catppuccin palette: 4 flavors × 15 accent colors
+- Automatic light/dark mode via `prefers-color-scheme`
+- Discourse theme detection (respects `data-theme`, `.theme-dark`, `.dark`)
+- Styled all major components: header, sidebar, topic list, posts, buttons, inputs, modals, code blocks, scrollbar
+- One-click install via Stylus
+- CI and stylelint integration
+- Auto-update support
+
 ## 🤝 Contributing
 
 Found a bug or want to improve the theme? Contributions are welcome!
