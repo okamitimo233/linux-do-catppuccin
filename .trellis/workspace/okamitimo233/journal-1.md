@@ -104,3 +104,36 @@ Added 9 --*-rgb CSS variable overrides in #catppuccin() mixin using red()/green(
 ### Next Steps
 
 - None - task complete
+
+
+## Session 4: Fix --secondary-* variable mapping
+
+**Date**: 2026-06-16
+**Task**: Fix --secondary-* variable mapping
+**Branch**: `main`
+
+### Summary
+
+Fixed --secondary-medium/high/very-high mapping from @crust to @overlay0/@overlay2/@subtext1. Resolved black dt labels on user profile. Added gotcha #8 to less-style-guide.md.
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `ac82879` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
