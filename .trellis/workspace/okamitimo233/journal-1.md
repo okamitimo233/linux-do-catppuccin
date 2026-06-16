@@ -71,3 +71,36 @@ Changed @version from date-based (YYYY.MM.DD) to SemVer (1.0.0), deleted CI auto
 ### Next Steps
 
 - None - task complete
+
+
+## Session 3: Fix Discourse --*-rgb CSS variable leakage
+
+**Date**: 2026-06-16
+**Task**: Fix Discourse --*-rgb CSS variable leakage
+**Branch**: `main`
+
+### Summary
+
+Added 9 --*-rgb CSS variable overrides in #catppuccin() mixin using red()/green()/blue() LESS functions to prevent Discourse original colors from leaking through rgba() semi-transparent patterns. Bumped version to 1.0.1. Documented -rgb gotcha in less-style-guide.md.
+
+### Main Changes
+
+(Add details)
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `1e5c830` | (see git log) |
+
+### Testing
+
+- [OK] (Add test results)
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
