@@ -48,77 +48,77 @@ Pick from 15 accent colors to personalize your experience:
 
 <table>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#f5e0dc;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_rosewater.png" width="23" height="23"/></td>
     <td><code>rosewater</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#f2cdcd;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_flamingo.png" width="23" height="23"/></td>
     <td><code>flamingo</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#f5c2e7;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_pink.png" width="23" height="23"/></td>
     <td><code>pink</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#cba6f7;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_mauve.png" width="23" height="23"/></td>
     <td><code>mauve</code></td>
     <td>✓ <strong>Default</strong></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#f38ba8;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_red.png" width="23" height="23"/></td>
     <td><code>red</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#eba0ac;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_maroon.png" width="23" height="23"/></td>
     <td><code>maroon</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#fab387;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_peach.png" width="23" height="23"/></td>
     <td><code>peach</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#f9e2af;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_yellow.png" width="23" height="23"/></td>
     <td><code>yellow</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#a6e3a1;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_green.png" width="23" height="23"/></td>
     <td><code>green</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#94e2d5;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_teal.png" width="23" height="23"/></td>
     <td><code>teal</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#89b4fa;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_blue.png" width="23" height="23"/></td>
     <td><code>blue</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#74c7ec;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_sapphire.png" width="23" height="23"/></td>
     <td><code>sapphire</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#89dceb;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_sky.png" width="23" height="23"/></td>
     <td><code>sky</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#b4befe;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_lavender.png" width="23" height="23"/></td>
     <td><code>lavender</code></td>
     <td></td>
   </tr>
   <tr>
-    <td align="center"><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background-color:#a6adc8;"></span></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/circles/mocha_subtext0.png" width="23" height="23"/></td>
     <td><code>subtext0</code></td>
     <td></td>
   </tr>
