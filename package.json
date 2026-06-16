@@ -1,0 +1,11 @@
+{
+  "name": "linux-do-catppuccin",
+  "private": true,
+  "devDependencies": {
+    "less": "^4.2.0",
+    "postcss-less": "^6.0.0",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard": "^36.0.1",
+    "usercss-meta": "^0.12.0"
+  }
+}

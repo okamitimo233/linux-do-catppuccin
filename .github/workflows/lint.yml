@@ -1,0 +1,87 @@
+name: Lint
+
+on:
+  pull_request:
+    paths:
+      - "catppuccin.user.less"
+  push:
+    branches: [main]
+    paths:
+      - "catppuccin.user.less"
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Validate UserCSS metadata and compile LESS
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("node:fs");
+            const less = require("less");
+            const { parse } = require("usercss-meta");
+
+            const file = "catppuccin.user.less";
+            let content = fs.readFileSync(file, "utf8");
+
+            // Parse UserCSS metadata
+            const { metadata, errors } = parse(content, { allowErrors: true });
+
+            for (const err of errors) {
+              core.error(`[${err.code}] ${err.message}`);
+            }
+
+            const required = [
+              "name", "namespace", "version", "description",
+              "author", "license", "preprocessor",
+            ];
+            for (const key of required) {
+              if (!metadata[key]) {
+                core.error(`Missing required metadata: @${key}`);
+              }
+            }
+
+            if (errors.length > 0 || Object.keys(metadata).length === 0) {
+              core.setFailed("UserCSS metadata validation failed");
+            }
+
+            // Extract default values from UserCSS vars to pass as LESS global vars
+            const globalVars = {};
+            if (metadata.vars) {
+              for (const [name, v] of Object.entries(metadata.vars)) {
+                globalVars[name] = v.default ?? v.options?.[0]?.name ?? "";
+              }
+            }
+
+            core.notice(
+              `Validated "${metadata.name}" v${metadata.version} — compiling LESS...`
+            );
+
+            // Compile LESS
+            try {
+              await less.render(content, {
+                lint: true,
+                globalVars,
+              });
+              core.notice("LESS compilation passed");
+            } catch (err) {
+              core.error(
+                `${err.type || "Error"}: ${err.message}`,
+                { file, startLine: err.line, endLine: err.line }
+              );
+              core.setFailed("LESS compilation failed");
+            }
+
+      - name: Run stylelint
+        run: npx --no-install stylelint catppuccin.user.less

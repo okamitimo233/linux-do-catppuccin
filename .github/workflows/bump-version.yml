@@ -1,0 +1,35 @@
+name: Bump Version
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "catppuccin.user.less"
+
+concurrency:
+  group: bump-version
+  cancel-in-progress: true
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    # Skip if the push came from this action itself
+    if: github.actor != 'github-actions[bot]'
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bump @version to today's date
+        run: |
+          TODAY=$(date -u +%Y.%m.%d)
+          sed -i -E "s/@version[[:space:]]+.*/@version         ${TODAY}/" catppuccin.user.less
+          echo "New @version: ${TODAY}"
+
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: bump version"
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
